@@ -7,10 +7,12 @@ from greyatomlib.game_of_thrones.q01_feature_engineering.build import q01_featur
 battles = pd.read_csv('data/battles.csv')
 character_predictions = pd.read_csv('data/character-predictions.csv')
 
-cult = {
-    'Summer Islands': ['summer islands', 'summer islander', 'summer isles'],
+
+def q07_culture_survival(value):
+    #'write your solution here'
+    cult = {'Summer Islands': ['summer islands', 'summer islander', 'summer isles'],
     'Ghiscari': ['ghiscari', 'ghiscaricari',  'ghis'],
-    'Asshai': ["asshai-i", 'asshai'],
+    'Asshai': ['asshai', 'asshai'],
     'Lysene': ['lysene', 'lyseni'],
     'Andal': ['andal', 'andals'],
     'Braavosi': ['braavosi', 'braavos'],
@@ -25,9 +27,10 @@ cult = {
     'Qartheen': ['qartheen', 'qarth'],
     'Reach': ['the reach', 'reach', 'reachmen'],
 }
+    value = value.lower()
+    v = [k for (k, v) in cult.items() if value in v]
+    return v[0] if len(v) > 0 else value.title()
 
-
-def q07_culture_survival():
-    "write your solution here"
+battles
 
 
